@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#FF4DB1</color>
+    <color name="colorPrimaryDark">#FF4DB1</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="iconcol">#F00B51</color>
+    <color name="background">#E0E0E0</color>
+    <color name="colorVal">#0074AD</color>
+    <color name="pik">#F84367</color>
+
+    <color name="colorVals" tools:ignore="MissingDefaultResource">#0074AD</color>
+    <color name="white">#FFF</color>
+    <color name="black">#424242</color>
+    <color name="tomato">#F00B51</color>
+    <color name="tomatos">#ff0038</color>
+    <color name="apple">#F00B51</color>
+    <color name="gray">#E0E0E0</color>
+    <color name="pink">#FF4DB1</color>
+    <color name="grays">#9E9E9E</color>
+    <color name="lemon">#ffff9f</color>
+</resources>

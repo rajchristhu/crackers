@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "226588890168",
+    "firebase_url": "https://raja-rani-6d804.firebaseio.com",
+    "project_id": "raja-rani-6d804",
+    "storage_bucket": "raja-rani-6d804.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226588890168:android:5a164d276b175e66b602cd",
+        "android_client_info": {
+          "package_name": "com.ceseagod.rajarani"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "226588890168-q70lg5uqhi72hv707ddu3qm28un63npb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGLAaEg5CzGqm2qRQ67u720S4JyIGzjdU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "226588890168-q70lg5uqhi72hv707ddu3qm28un63npb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
