@@ -42,12 +42,12 @@ class AddCategoriesItemActivity : AppCompatActivity() {
             val input2 = inputs2.text.toString()
             val input3 = inputs4.text.toString()
             val input4 = inputs5.text.toString()
-            val sd = checksValidation(input1, imagePath, input2, input3,input4)
+            val sd = checksValidation(input1, imagePath, input2, input3, input4)
             if (sd) {
                 photouploadFile(
                     bitmap!!,
                     "CategoryPhoto",
-                    SessionMaintainence.instance!!.Uid!!, input1, input2, input3,input4
+                    SessionMaintainence.instance!!.Uid!!, input1, input2, input3, input4
                 )
             } else {
                 toast("Fill All details")
@@ -96,8 +96,9 @@ class AddCategoriesItemActivity : AppCompatActivity() {
         des: String,
         input4: String
     ): Boolean {
-        return topti != "" && imagePath != "" && toptitwo != "" && des != "" && input4!=""
+        return topti != "" && imagePath != "" && toptitwo != "" && des != "" && input4 != ""
     }
+
     private fun addCate(
         imageLinks: String,
         topti: String,
@@ -107,7 +108,8 @@ class AddCategoriesItemActivity : AppCompatActivity() {
     ) {
         val instance = SessionMaintainence.instance!!
         val ifd = instance.Uid!! + Timestamp.now()
-        val model = Cateitemmodel(topti, ifd, imageLinks, toptitwo, des,input4, Timestamp.now())
+        val model =
+            Cateitemmodel(topti, ifd, "", imageLinks, toptitwo, des, input4, "", Timestamp.now())
         firestoreDB = FirebaseFirestore.getInstance()
         firestoreDB!!.collection("categoriesitem").document(ifd)
             .set(model)
@@ -120,6 +122,7 @@ class AddCategoriesItemActivity : AppCompatActivity() {
             }
 
     }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -147,13 +150,14 @@ class AddCategoriesItemActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == PICK_IMAGE) {
             imageUri = data!!.data
-            imagePath=imageUri.toString()
+            imagePath = imageUri.toString()
             kadaiimages!!.setImageURI(imageUri)
             bitmap =
                 MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
 
         }
     }
+
     private fun photouploadFile(
         bitmap: Bitmap,
         folder: String,
@@ -185,7 +189,7 @@ class AddCategoriesItemActivity : AppCompatActivity() {
                     imageLinks,
                     topti,
                     toptitwo,
-                    des,input4
+                    des, input4
                 )
             }
         }

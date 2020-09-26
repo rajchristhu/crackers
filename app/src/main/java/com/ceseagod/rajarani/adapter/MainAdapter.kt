@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.mainfolder.AddCategoriesActivity
 import com.ceseagod.rajarani.mainfolder.AddCategoriesItemActivity
+import com.ceseagod.rajarani.mainfolder.ShowPages
 import com.ceseagod.rajarani.model.CateModel
 import kotlinx.android.synthetic.main.main_adapter.view.*
 import org.jetbrains.anko.startActivity
@@ -42,7 +43,7 @@ class MainAdapter(
 
         holder.textView.text = data.title
         holder.newsIMage.setOnClickListener {
-            activity!!.startActivity<AddCategoriesActivity>()
+            activity!!.startActivity<ShowPages>("id" to data.id)
 //            activity!!.startActivity<AddCategoriesItemActivity>()
         }
     }

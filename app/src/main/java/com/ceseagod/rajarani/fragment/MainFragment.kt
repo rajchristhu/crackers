@@ -41,6 +41,7 @@ class MainFragment : Fragment() {
         firestoreDB=FirebaseFirestore.getInstance()
         firestoreDB!!.collection("categories").orderBy("created_time", Query.Direction.DESCENDING).get()
             .addOnSuccessListener { document ->
+                cateModels.clear()
                 for (i in document)
                 {
                     cateModel = i.toObject(CateModel::class.java)
@@ -49,10 +50,13 @@ class MainFragment : Fragment() {
                     val filters=cateModels!!.filter { it.type=="sub" }
                     val acceptHorizontalLayoutsss =
                         LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-                    recyclerViewone!!.layoutManager = acceptHorizontalLayoutsss
-                    recyclerViewone!!.adapter = MainAdapter( activity!!,filter)
-                    recyclerViewtwo!!.layoutManager =   LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-                    recyclerViewtwo!!.adapter = SecondAdapter( activity!!,filters)
+                    try {
+                        recyclerViewone!!.layoutManager = acceptHorizontalLayoutsss
+                        recyclerViewone!!.adapter = MainAdapter( activity!!,filter)
+                        recyclerViewtwo!!.layoutManager =   LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+                        recyclerViewtwo!!.adapter = SecondAdapter( activity!!,filters)
+                    } catch (e: Exception) {
+                    }
 
                 }
             }
