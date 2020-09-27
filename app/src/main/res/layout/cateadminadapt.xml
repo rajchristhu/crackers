@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:visibility="visible">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/kadaiclick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="8dp">
+
+            <ImageView
+                android:id="@+id/payimages"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/outline"
+                android:scaleType="centerCrop"
+                android:src="@drawable/index" />
+
+            <View
+                android:id="@+id/view11"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="#CC606060"
+                android:visibility="gone" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/payname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/open_sans_semibold"
+            android:text="Chettinadu Food palace"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/menuitem"
+            app:layout_constraintStart_toEndOf="@+id/cardView5"
+            app:layout_constraintTop_toTopOf="@+id/cardView5"
+            android:layout_marginLeft="8dp" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/open_sans"
+            android:text="Pending Order: "
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/textView14"
+            app:layout_constraintStart_toEndOf="@+id/cardView5"
+            app:layout_constraintTop_toTopOf="@+id/textView14"
+            android:layout_marginLeft="8dp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/open_sans"
+            android:padding="4dp"
+            android:text="3.6"
+
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payname" />
+
+        <ImageView
+            android:id="@+id/menuitem"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/vegg"
+            android:fontFamily="@font/open_sans"
+            android:text="Rice, Non-Veg,Starters..."
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/payname"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/open_sans"
+            android:text="Activate"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardView5"
+            app:layout_constraintTop_toBottomOf="@+id/foodtype"
+            android:layout_marginLeft="8dp" />
+
+        <TextView
+            android:id="@+id/foodtype"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/open_sans"
+            android:text="12.00 am - 12.00 pm"
+            android:textColor="@color/black"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/dele"
+            app:layout_constraintStart_toStartOf="@+id/price"
+            app:layout_constraintTop_toBottomOf="@+id/price" />
+
+        <ImageView
+            android:id="@+id/editt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/foodtype"
+            app:layout_constraintEnd_toEndOf="@+id/menuitem"
+            app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+        <ImageView
+            android:id="@+id/dele"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/editt"
+            app:layout_constraintTop_toTopOf="@+id/editt"
+            app:srcCompat="@drawable/ic_baseline_delete_24"
+            android:layout_marginRight="8dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
