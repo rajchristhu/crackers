@@ -17,7 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppThems"
         tools:replace="android:theme">
-        <activity android:name=".mainfolder.ShowPages"></activity>
+        <activity android:name=".mainfolder.SupportChatActivity"></activity>
+        <activity android:name=".mainfolder.CartItemActivity" />
+        <activity android:name=".mainfolder.ShowPages" />
         <activity android:name=".mainfolder.AddcartActivity" />
         <activity android:name=".mainfolder.AddCategoriesItemActivity" />
         <activity android:name=".mainfolder.AddCategoriesActivity" />

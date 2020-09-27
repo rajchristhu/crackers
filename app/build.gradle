@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -22,6 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
@@ -35,7 +37,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     def nav_version = "2.1.0"
-
+    def roomVersion = '1.1.1'
+    def archLifecycleVersion = '1.1.1'
+    def kotlin_version = '1.2.51'
     //firebase
     implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
@@ -64,7 +68,20 @@ dependencies {
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
 
     implementation 'com.github.travijuu:numberpicker:1.0.7'
+    // Room components
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    kapt "android.arch.persistence.room:compiler:$roomVersion"
+    // Lifecycle components
+    implementation "android.arch.lifecycle:extensions:$archLifecycleVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$archLifecycleVersion"
+    implementation "io.reactivex.rxjava3:rxjava:3.0.6"
+    implementation 'com.airbnb.android:lottie:3.4.1'
 
+  
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
 
 }
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
 apply plugin: 'com.google.gms.google-services'

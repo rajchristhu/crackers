@@ -10,7 +10,6 @@ import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.mainfolder.AddcartActivity
 import com.ceseagod.rajarani.mainfolder.ShowPages
 import com.ceseagod.rajarani.model.Cateitemmodel
-import kotlinx.android.synthetic.main.activity_addcart.*
 import kotlinx.android.synthetic.main.show_adapter.view.*
 import org.jetbrains.anko.startActivity
 
@@ -55,7 +54,7 @@ class ShowAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var title = itemView.title
-        var price = itemView.price
+        var price = itemView.prices
         var cardview = itemView.cardview
         var imageView12 = itemView.imageView12
         var fes = itemView.fes

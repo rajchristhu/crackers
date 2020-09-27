@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
-    >
+    android:background="@color/white">
+
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="80dp"
@@ -15,6 +15,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/butts"
+        android:layout_width="116dp"
+        android:layout_height="46dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/back"
+        android:text="Add"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -88,7 +104,7 @@
                 android:layout_marginBottom="64dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="10dp"
-                app:cardMaxElevation="10dp"
+                app:cardMaxElevation="50dp"
                 app:layout_constraintBottom_toTopOf="@+id/textView15"
 
                 app:layout_constraintEnd_toEndOf="parent"
@@ -99,8 +115,7 @@
                     android:id="@+id/imageView10"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="12dp"
+
 
                     android:scaleType="center"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -144,12 +159,13 @@
 
     <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
         android:id="@+id/number_picker"
-        android:layout_width="96dp"
-        android:layout_height="36dp"
+        android:layout_width="116dp"
+        android:layout_height="46dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:focusable="false"
+        android:visibility="invisible"
         app:backGroundColor="@color/apple"
         app:backgroundDrawable="@drawable/back"
         app:initialNumber="0"
@@ -157,4 +173,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         app:textSize="5.5sp" />
+
+    <TextView
+        android:id="@+id/prices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="0 ₹"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 </androidx.constraintlayout.widget.ConstraintLayout>
