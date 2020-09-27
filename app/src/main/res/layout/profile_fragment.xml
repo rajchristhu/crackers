@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="74dp"
             android:innerRadius="0dp"
             android:shape="ring"
             app:cardCornerRadius="75dp"
@@ -76,9 +76,9 @@
                 android:id="@+id/profileimage"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:scaleType="centerCrop"
                 android:layout_gravity="center"
-                android:background="@drawable/profilepng" />
+                android:background="@drawable/profilepng"
+                android:scaleType="centerCrop" />
         </androidx.cardview.widget.CardView>
 
         <TextView

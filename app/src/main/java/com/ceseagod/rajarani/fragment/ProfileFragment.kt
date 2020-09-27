@@ -81,10 +81,13 @@ class ProfileFragment : Fragment() {
         if (SessionMaintainence.instance!!.is_loggedin) {
             profile.visibility = View.VISIBLE
             profilesignup.visibility = View.GONE
-            val upperString: String =
+            val upperString: String = try {
                 SessionMaintainence.instance!!.fullname!!.substring(0, 1)
                     .toUpperCase() + SessionMaintainence.instance!!.fullname!!.substring(1)
                     .toLowerCase()
+            } catch (e: Exception) {
+                ""
+            }
             nameuser.text = upperString
             phoneuser.text = "+91 " + SessionMaintainence.instance!!.phoneno
             Glide.with(this)
