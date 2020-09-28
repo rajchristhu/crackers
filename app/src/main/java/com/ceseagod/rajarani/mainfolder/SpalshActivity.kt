@@ -38,8 +38,16 @@ class SpalshActivity : AppCompatActivity() {
 
 
             } else {
-                startActivity<MainActivity>()
-                finish()
+                if (SessionMaintainence.instance!!.userType == "admin") {
+                    startActivity<AdminsActivity>()
+                    finish()
+                } else {
+                    startActivity<MainActivity>()
+                    finish()
+                }
+
+//                startActivity<AdminsActivity>()
+
 
             }
 //            startActivity(Intent(this, checkActivity::class.java))

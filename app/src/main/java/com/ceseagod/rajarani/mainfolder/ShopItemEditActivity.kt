@@ -14,16 +14,16 @@ import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.model.CateModel
+import com.ceseagod.rajarani.model.Cateitemmodel
 import com.ceseagod.showcase.utilities.SessionMaintainence
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_shop_edit.*
+import kotlinx.android.synthetic.main.activity_shop_item_edit.*
 import org.jetbrains.anko.toast
 import java.io.ByteArrayOutputStream
 
-class ShopEditActivity : AppCompatActivity() {
-//    var imageLinks: String = ""
+class ShopItemEditActivity : AppCompatActivity() {
     var imageLinkss: String = ""
     var firestoreDB: FirebaseFirestore? = null
     private val PICK_IMAGE = 100
@@ -35,17 +35,19 @@ class ShopEditActivity : AppCompatActivity() {
     var bitmaps: Bitmap? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_shop_edit)
+        setContentView(R.layout.activity_shop_item_edit)
         val bundle = intent.getBundleExtra("myBundle")
-        var person = bundle.getParcelable<CateModel>("selected_person") as CateModel
+        var person = bundle.getParcelable<CateModel>("selected_person") as Cateitemmodel
 
         inputs1.setText(person.title)
 
 //        inputs2.setText(person.phoneno)
 //        inputs3.setText(person.address)
 
-        inputs4.setText(person.type)
+        inputs4.setText(person.color_code)
+        inputs5.setText(person.stack_count)
         inputs2.setText(person.posted_by)
+        inputs7.setText(person.price)
 
 //        inputs5.setText(person.starttime)
 //        inputs6.setText(person.endtime)
@@ -60,7 +62,7 @@ class ShopEditActivity : AppCompatActivity() {
 //        imageLinks = person.kadaiImage
 //        imageLinkss = person.kadaicoverImage
 
-        placeos.setOnClickListener {
+        placeo.setOnClickListener {
             addCate(
                 inputs1.text.toString(), inputs2.text.toString(),
                 inputs4.text.toString(),
@@ -238,4 +240,5 @@ class ShopEditActivity : AppCompatActivity() {
 
 
     }
+
 }

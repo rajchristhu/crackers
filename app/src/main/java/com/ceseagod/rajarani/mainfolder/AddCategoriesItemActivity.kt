@@ -6,14 +6,13 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.ceseagod.rajarani.R
-import com.ceseagod.rajarani.model.CateModel
 import com.ceseagod.rajarani.model.Cateitemmodel
 import com.ceseagod.showcase.utilities.SessionMaintainence
 import com.google.firebase.Timestamp
@@ -42,6 +41,7 @@ class AddCategoriesItemActivity : AppCompatActivity() {
             val input2 = inputs2.text.toString()
             val input3 = inputs4.text.toString()
             val input4 = inputs5.text.toString()
+            val input7 = inputs7.text.toString()
             val sd = checksValidation(input1, imagePath, input2, input3, input4)
             if (sd) {
                 photouploadFile(
@@ -64,6 +64,10 @@ class AddCategoriesItemActivity : AppCompatActivity() {
                 }
                 if (inputs5.text.toString().isEmpty()) {
                     inputs5.error = "Fill the details"
+
+                }
+                if (inputs7.text.toString().isEmpty()) {
+                    inputs7.error = "Fill the details"
 
                 }
             }
@@ -109,7 +113,17 @@ class AddCategoriesItemActivity : AppCompatActivity() {
         val instance = SessionMaintainence.instance!!
         val ifd = instance.Uid!! + Timestamp.now()
         val model =
-            Cateitemmodel(topti, ifd, "", imageLinks, toptitwo, des, input4, "", Timestamp.now())
+            Cateitemmodel(
+                topti,
+                ifd,
+                "",
+                imageLinks,
+                toptitwo,
+                des,
+                input4,
+                inputs7.text.toString(),
+                Timestamp.now()
+            )
         firestoreDB = FirebaseFirestore.getInstance()
         firestoreDB!!.collection("categoriesitem").document(ifd)
             .set(model)

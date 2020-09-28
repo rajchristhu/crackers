@@ -17,7 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppThems"
         tools:replace="android:theme">
-        <activity android:name=".mainfolder.ShopEditActivity"></activity>
+        <activity android:name=".mainfolder.ShopItemEditActivity"></activity>
+        <activity android:name=".mainfolder.AddShopActivity" />
+        <activity android:name=".mainfolder.ShopEditActivity" />
         <activity android:name=".mainfolder.AdminsActivity" />
         <activity android:name=".mainfolder.SupportChatActivity" />
         <activity android:name=".mainfolder.CartItemActivity" />
