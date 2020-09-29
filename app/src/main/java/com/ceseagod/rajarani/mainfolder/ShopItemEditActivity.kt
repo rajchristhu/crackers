@@ -39,6 +39,7 @@ class ShopItemEditActivity : AppCompatActivity() {
         setContentView(R.layout.activity_shop_item_edit)
         val bundle = intent.getBundleExtra("myBundle")
         var person = bundle.getParcelable<CateModel>("selected_person") as Cateitemmodel
+        imageLinkss = person.image
 
         inputs1.setText(person.title)
 

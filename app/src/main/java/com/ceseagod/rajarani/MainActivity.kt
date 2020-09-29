@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
             //navigation changed, do something here
         }
-        if(SessionMaintainence!!.instance!!.is_loggedin)
+        if(!SessionMaintainence!!.instance!!.is_loggedin)
         {
             m_item_photos.visibility=View.GONE
             post.visibility=View.GONE

@@ -6,7 +6,16 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
-
+//    packagingOptions {
+//        // option 1
+////        pickFirst '**/META-INFMANIFEST.MF'
+//        exclude 'META-INF/LGPL2.1'
+//        exclude 'META-INF/LICENSE'
+//        exclude 'META-INF/NOTICE'
+//        exclude 'META-INF/androidx.legacy_legacy-support-core-utils.version'
+//        exclude 'META-INF/androidx.loader_loader.version'
+//        // or option 2:
+//    }
     defaultConfig {
         applicationId "com.ceseagod.rajarani"
         minSdkVersion 26
