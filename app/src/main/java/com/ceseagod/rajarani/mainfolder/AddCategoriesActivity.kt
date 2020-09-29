@@ -24,6 +24,7 @@ import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_add_categories.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import java.io.ByteArrayOutputStream
 
@@ -101,7 +102,7 @@ class AddCategoriesActivity : AppCompatActivity() {
             .set(model)
             .addOnSuccessListener {
                 progress!!.dismiss()
-                toast("added")
+                startActivity<AdminsActivity>()
             }
             .addOnFailureListener {
                 progress!!.dismiss()

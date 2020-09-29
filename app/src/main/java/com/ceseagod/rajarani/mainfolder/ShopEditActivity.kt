@@ -19,6 +19,7 @@ import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_shop_edit.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import java.io.ByteArrayOutputStream
 
@@ -229,7 +230,7 @@ class ShopEditActivity : AppCompatActivity() {
             )
         )
             .addOnSuccessListener {
-                toast("added")
+                startActivity<AdminsActivity>()
             }
             .addOnFailureListener {
                 toast("fail")

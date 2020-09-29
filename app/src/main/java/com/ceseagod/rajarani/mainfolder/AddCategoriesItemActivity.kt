@@ -19,6 +19,7 @@ import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_add_categories_item.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import java.io.ByteArrayOutputStream
 
@@ -32,9 +33,11 @@ class AddCategoriesItemActivity : AppCompatActivity() {
     var bitmap: Bitmap? = null
     private val FINAL_CHOOSE_PHOTO = 2
     private val FINAL_TAKE_PHOTO = 1
+    var id=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_categories_item)
+        id = intent.getStringExtra("id")
 
         placeo.setOnClickListener {
             val input1 = inputs1.text.toString()
@@ -116,7 +119,7 @@ class AddCategoriesItemActivity : AppCompatActivity() {
             Cateitemmodel(
                 topti,
                 ifd,
-                "",
+                id,
                 imageLinks,
                 toptitwo,
                 des,
@@ -129,7 +132,7 @@ class AddCategoriesItemActivity : AppCompatActivity() {
             .set(model)
             .addOnSuccessListener {
                 progress!!.dismiss()
-                toast("added")
+                startActivity<AdminsActivity>()
             }
             .addOnFailureListener {
                 progress!!.dismiss()

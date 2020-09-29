@@ -11,13 +11,16 @@
     <application
         android:name="com.ceseagod.showcase.utilities.Application"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launchers"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThems"
-        tools:replace="android:theme">
-        <activity android:name=".mainfolder.ShopItemEditActivity"></activity>
+        tools:replace="android:theme,android:icon">
+        <activity android:name=".mainfolder.AddressActivity"></activity>
+        <activity android:name=".mainfolder.check" />
+        <activity android:name=".mainfolder.SpalshActivitys" />
+        <activity android:name=".mainfolder.ShopItemEditActivity" />
         <activity android:name=".mainfolder.AddShopActivity" />
         <activity android:name=".mainfolder.ShopEditActivity" />
         <activity android:name=".mainfolder.AdminsActivity" />

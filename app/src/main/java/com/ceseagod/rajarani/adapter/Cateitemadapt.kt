@@ -57,9 +57,9 @@ class Cateitemadapt(
             intent.putExtra("myBundle", bundle)
             ContextCompat.startActivity(activity!!, intent, bundle)
         }
-        holder.kadaiclick.setOnClickListener {
-            activity!!.startActivity<AddCategoriesItemActivity>("id" to data.id)
-        }
+//        holder.kadaiclick.setOnClickListener {
+//            activity!!.startActivity<AddCategoriesItemActivity>("id" to data.id)
+//        }
         Glide.with(activity!!)
             .load(data.image)
             .into(holder.payimages)

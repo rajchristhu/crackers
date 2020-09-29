@@ -12,6 +12,7 @@ import com.ceseagod.rajarani.adapter.trackAdapter
 import com.ceseagod.rajarani.model.orederModel
 import com.ceseagod.showcase.utilities.SessionMaintainence
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.track_fragment.*
 
 class TrackFragment : Fragment() {
@@ -35,7 +36,15 @@ class TrackFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(TrackViewModel::class.java)
         firestoreDB = FirebaseFirestore.getInstance()
-
+        try {
+//            activity!!.itemcard.visibility = View.GONE
+//
+//            activity!!.main.visibility = View.GONE
+//            activity!!.sub.visibility = View.VISIBLE
+            activity!!.equal_navigation_bars.visibility = View.VISIBLE
+//            activity!!.head.text="Support"
+        } catch (e: Exception) {
+        }
 //        try {
 //            activity!!.itemcard.visibility = View.GONE
 //

@@ -165,7 +165,7 @@ try {
 
                         //verification unsuccessful.. display an error message
                         var message =
-                            "Something is wrong..."
+                            "Checking..."
                         if (task.exception is FirebaseAuthInvalidCredentialsException) {
 //                            message = "Invalid code entered..."
                         }

@@ -22,7 +22,7 @@
         <com.gauravk.bubblenavigation.BubbleNavigationLinearView
             android:id="@+id/equal_navigation_bars"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="65dp"
             android:background="@drawable/rounded_rect_white"
             android:elevation="20dp"
             android:padding="12dp"
@@ -33,12 +33,12 @@
             <com.gauravk.bubblenavigation.BubbleToggleView
                 android:id="@+id/m_item_shop"
                 android:layout_width="match_parent"
-                app:bt_badgeTextColor="@color/white"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:bt_icon="@drawable/ic_baseline_home_24"
+                app:bt_badgeTextColor="@color/white"
                 app:bt_colorActive="@color/white"
                 app:bt_colorInactive="#FF4DB2"
+                app:bt_icon="@drawable/ic_baseline_home_24"
                 app:bt_shape="@drawable/shop_background_stroke"
                 app:bt_title="Home" />
 
@@ -47,9 +47,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:bt_icon="@drawable/ic_baseline_location_on_24"
                 app:bt_colorActive="@color/white"
                 app:bt_colorInactive="#FF4DB2"
+                app:bt_icon="@drawable/ic_baseline_location_on_24"
                 app:bt_shape="@drawable/shop_background_stroke"
                 app:bt_title="Track" />
 
@@ -58,9 +58,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:bt_icon="@drawable/profilepng"
                 app:bt_colorActive="@color/white"
                 app:bt_colorInactive="#FF4DB2"
+                app:bt_icon="@drawable/profilepng"
                 app:bt_shape="@drawable/shop_background_stroke"
                 app:bt_title="Profile" />
 
@@ -394,7 +394,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/offfer"
                     android:layout_width="match_parent"
-
+android:visibility="gone"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"

@@ -15,12 +15,14 @@ import com.ceseagod.rajarani.fragment.MainViewModel
 import com.ceseagod.showcase.utilities.SessionMaintainence
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_addcart.*
 import kotlinx.android.synthetic.main.activity_cart_item.*
 import kotlinx.android.synthetic.main.profile_bottom_sheet_dialog.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import org.jetbrains.anko.selector
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import kotlin.coroutines.CoroutineContext
 
@@ -44,6 +46,12 @@ class CartItemActivity : AppCompatActivity(), CoroutineScope {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart_item)
         mWordViewModel= ViewModelProviders.of(this).get(MainViewModel::class.java)
+        imageView4.setOnClickListener {
+            finish()
+        }
+        pay.setOnClickListener {
+            startActivity<AddressActivity>("price" to price)
+        }
         mWordViewModel?.allWords?.observe(this, androidx.lifecycle.Observer {
             cart_recyclerView!!.layoutManager = acceptHorizontalLayouts
             val s = it.groupBy { it.ids }
@@ -57,11 +65,17 @@ class CartItemActivity : AppCompatActivity(), CoroutineScope {
                 oprice += i[0].originalprize * i.size
                 sse += i[0].name + ", "
             }
-            totalprice.text = price.toString()
+            val dis=((price*2)/100)
+            val del=((price*10)/100)
+            val to=dis+del
+            dicountprice.text= "${dis.toString()} ₹"
+            deliveryprice.text= "${del.toString()} ₹"
+            textView19.text= "- $to ₹"
+            totalprice.text = "$price ₹"
             textView29.text = sse
-            dicountprice.text = "- " + (oprice - price).toString()
-            toStrings = (price + 10).toString()
-            totalprices.text = toStrings
+//            dicountprice.text = "- " + (oprice - price).toString()
+            toStrings = (price ).toString()
+            totalprices.text = "$toStrings ₹"
             cart_recyclerView!!.adapter = cartitemadapter(it, cart)
         })
         itemcard.setOnClickListener {

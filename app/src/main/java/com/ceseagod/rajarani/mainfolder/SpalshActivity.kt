@@ -13,6 +13,7 @@ import org.jetbrains.anko.startActivity
 class SpalshActivity : AppCompatActivity() {
     public val SPLASH_TIME_OUT: Long = 2000 // 2 sec
     var sessionMaintainence = SessionMaintainence.instance
+    //Hooks
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

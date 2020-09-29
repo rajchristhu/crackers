@@ -54,11 +54,11 @@
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="34dp"
-        android:layout_height="34dp"
+        android:layout_width="25dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/mainre"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/leftarrow" />

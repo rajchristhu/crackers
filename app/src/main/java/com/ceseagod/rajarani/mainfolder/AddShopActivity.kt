@@ -1,7 +1,7 @@
 package com.ceseagod.rajarani.mainfolder
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.adapter.Cateitemadapt
@@ -13,16 +13,21 @@ import org.jetbrains.anko.startActivity
 class AddShopActivity : AppCompatActivity() {
     var firestoreDB: FirebaseFirestore? = null
     var cateModel: MutableList<Cateitemmodel> = mutableListOf<Cateitemmodel>()
+    var id = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_shop)
+        id = intent.getStringExtra("id")
+
         firestoreDB = FirebaseFirestore.getInstance()
         firestoreDB!!.collection("categoriesitem").get()
             .addOnSuccessListener {
                 cateModel.clear()
                 for (i in it) {
                     val s = i.toObject(Cateitemmodel::class.java)
-                    cateModel.add(s)
+                    if (s.itemId == id) {
+                        cateModel.add(s)
+                    }
                 }
                 foodadminrec!!.layoutManager = LinearLayoutManager(this)
                 foodadminrec!!.adapter = Cateitemadapt(cateModel, this)
@@ -31,7 +36,7 @@ class AddShopActivity : AppCompatActivity() {
 
             }
         addshops.setOnClickListener {
-          startActivity<AddCategoriesItemActivity>()
+            startActivity<AddCategoriesItemActivity>("id" to id)
 
         }
     }
