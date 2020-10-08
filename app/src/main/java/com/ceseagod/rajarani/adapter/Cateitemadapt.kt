@@ -1,7 +1,6 @@
 package com.ceseagod.rajarani.adapter
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,8 +10,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ceseagod.rajarani.R
-import com.ceseagod.rajarani.mainfolder.*
-import com.ceseagod.rajarani.model.CateModel
+import com.ceseagod.rajarani.mainfolder.AddCategoriesItemActivity
+import com.ceseagod.rajarani.mainfolder.AddShopActivity
+import com.ceseagod.rajarani.mainfolder.ShopEditActivity
+import com.ceseagod.rajarani.mainfolder.ShopItemEditActivity
+import com.ceseagod.rajarani.model.Cateitemmodel
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.cateadminadapt.view.*
 import org.jetbrains.anko.alert
@@ -21,11 +23,11 @@ import org.jetbrains.anko.toast
 import org.jetbrains.anko.yesButton
 import java.util.*
 
-class Cateadapt(
-   val kadaiList: MutableList<CateModel>,
-   val activity: AdminsActivity
+class Cateitemadapt(
+    val cateModel: MutableList<Cateitemmodel>,
+    val activity: AddShopActivity
 ) :
-    RecyclerView.Adapter<Cateadapt.ViewHolder>() {
+    RecyclerView.Adapter<Cateitemadapt.ViewHolder>() {
     val inputFormat = "HH:mm"
 
     private var date: Date? = null
@@ -35,44 +37,43 @@ class Cateadapt(
 
     private var compareStringOne = ""
     private var compareStringTwo = ""
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Cateadapt.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Cateitemadapt.ViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.cateadminadapt, parent, false)
         return ViewHolder(itemView)
     }
 
     override fun getItemCount(): Int {
-        return kadaiList.size
+        return cateModel.size
     }
 
-    override fun onBindViewHolder(holder: Cateadapt.ViewHolder, position: Int) {
-        val data = kadaiList[position]
-
+    override fun onBindViewHolder(holder: Cateitemadapt.ViewHolder, position: Int) {
+        val data = cateModel[position]
 
         holder.editt.setOnClickListener {
-            val intent = Intent(activity!!, ShopEditActivity::class.java)
+            val intent = Intent(activity!!, ShopItemEditActivity::class.java)
             var bundle = Bundle()
             bundle.putParcelable("selected_person", data)
             intent.putExtra("myBundle", bundle)
             ContextCompat.startActivity(activity!!, intent, bundle)
         }
-        holder.kadaiclick.setOnClickListener {
-            activity!!.startActivity<AddShopActivity>("id" to data.id)
-        }
+//        holder.kadaiclick.setOnClickListener {
+//            activity!!.startActivity<AddCategoriesItemActivity>("id" to data.id)
+//        }
         Glide.with(activity!!)
             .load(data.image)
             .into(holder.payimages)
         holder.res.text = data.title
-        if (data.type == "non") {
-            Glide.with(activity)
-                .load(R.drawable.vegg)
-                .into(holder.menu)
-
-        } else if (data.type == "veg") {
-            Glide.with(activity)
-                .load(R.drawable.nonv)
-                .into(holder.menu)
-        }
+//        if (data.type == "non") {
+//            Glide.with(activity)
+//                .load(R.drawable.vegg)
+//                .into(holder.menu)
+//
+//        } else if (data.type == "veg") {
+//            Glide.with(activity)
+//                .load(R.drawable.nonv)
+//                .into(holder.menu)
+//        }
         firestoreDB = FirebaseFirestore.getInstance()
 
         holder.price.text = "Time: "
@@ -80,7 +81,7 @@ class Cateadapt(
             Log.e("vr",data.id)
             activity!!.alert( "Categories Name:"+data.title,"Are you sure delete this ?") {
                 yesButton {
-                    firestoreDB!!.collection("categories").document(data.id)
+                    firestoreDB!!.collection("categoriesitem").document(data.id)
                         .delete()
                         .addOnSuccessListener {
                             activity!!.toast("deleted successfully")
@@ -97,19 +98,7 @@ class Cateadapt(
 
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val res = itemView.payname
-        val menu = itemView.menuitem
-        val price = itemView.price
-        val foodtype = itemView.foodtype
-        val type = itemView.type
-        val kadaiclick = itemView.kadaiclick
-        val textView14 = itemView.textView14
-        val editt = itemView.editt
-        val dele = itemView.dele
-        val view11 = itemView.view11
-        val payimages = itemView.payimages
-    }
+
 
     fun dated(replace: String, replace1: String): Boolean {
         val from = replace.toFloat() * 100
@@ -123,4 +112,19 @@ class Cateadapt(
         return isBetween
     }
 
+
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val res = itemView.payname
+        val menu = itemView.menuitem
+        val price = itemView.price
+        val foodtype = itemView.foodtype
+        val type = itemView.type
+        val kadaiclick = itemView.kadaiclick
+        val textView14 = itemView.textView14
+        val editt = itemView.editt
+        val dele = itemView.dele
+        val view11 = itemView.view11
+        val payimages = itemView.payimages
+    }
 }
+

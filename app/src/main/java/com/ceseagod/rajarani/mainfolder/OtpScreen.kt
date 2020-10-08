@@ -165,7 +165,7 @@ try {
 
                         //verification unsuccessful.. display an error message
                         var message =
-                            "Something is wrong..."
+                            "Checking..."
                         if (task.exception is FirebaseAuthInvalidCredentialsException) {
 //                            message = "Invalid code entered..."
                         }
@@ -200,6 +200,7 @@ try {
                     else{
                         val intent =
                             Intent(this@OtpScreen, MainActivity::class.java)
+//                            Intent(this@OtpScreen, AdminsActivity::class.java)
                         intent.flags =
                             Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)

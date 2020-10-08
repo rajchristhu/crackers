@@ -8,7 +8,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.bumptech.glide.Glide
+import com.ceseagod.rajarani.cart.Cart
 import com.ceseagod.rajarani.fragment.*
 import com.ceseagod.showcase.utilities.SessionMaintainence
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     var drawerLayouts: DrawerLayout? = null
     private var mWordViewModel: MainViewModel? = null
 
+    var cartList: MutableList<Cart> = mutableListOf<Cart>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         drawerLayouts = drawerLayout
         firestoreDB = FirebaseFirestore.getInstance()
         mWordViewModel!!.deleteall()
-        changeFragment(MainFragment(), "mainfrag")
+        changeFragment(MainFragment(this), "mainfrag")
 
         equal_navigation_bars.setNavigationChangeListener { view, position ->
             when (position) {
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                     changeFragment(ProfileFragment(), "profile")
                 }
                 0 -> {
-                    changeFragment(MainFragment(), "mainfrag")
+                    changeFragment(MainFragment(this), "mainfrag")
                 }
                 1 -> {
                     changeFragment(TrackFragment(), "grocery")
@@ -48,6 +49,13 @@ class MainActivity : AppCompatActivity() {
 
             //navigation changed, do something here
         }
+        if(!SessionMaintainence!!.instance!!.is_loggedin)
+        {
+            m_item_photos.visibility=View.GONE
+            post.visibility=View.GONE
+            job.visibility=View.GONE
+            support.visibility=View.GONE
+        }
         post.setOnClickListener {
             drawerLayouts!!.closeDrawers()
             changeFragment(OrderFragment(), "order")
@@ -58,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         }
         support.setOnClickListener {
             drawerLayouts!!.closeDrawers()
-            changeFragment(support_frag(), "support")
+            changeFragment(support_frag(this), "support")
         }
         equal_navigation_bars.setCurrentActiveItem(0)
         menuss.setOnClickListener {

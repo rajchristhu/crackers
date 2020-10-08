@@ -6,10 +6,19 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
-
+//    packagingOptions {
+//        // option 1
+////        pickFirst '**/META-INFMANIFEST.MF'
+//        exclude 'META-INF/LGPL2.1'
+//        exclude 'META-INF/LICENSE'
+//        exclude 'META-INF/NOTICE'
+//        exclude 'META-INF/androidx.legacy_legacy-support-core-utils.version'
+//        exclude 'META-INF/androidx.loader_loader.version'
+//        // or option 2:
+//    }
     defaultConfig {
         applicationId "com.ceseagod.rajarani"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -19,6 +28,12 @@ android {
 
     buildTypes {
         release {
+            lintOptions {
+                checkReleaseBuilds false
+                // Or, if you prefer, you can continue to check for errors in release builds,
+                // but continue the build even when errors are found:
+                abortOnError false
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

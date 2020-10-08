@@ -1,5 +1,6 @@
 package com.ceseagod.rajarani.mainfolder
 
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -13,9 +14,6 @@ import com.ceseagod.rajarani.fragment.MainViewModel
 import com.ceseagod.rajarani.model.Cateitemmodel
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_addcart.*
-import kotlinx.android.synthetic.main.activity_addcart.imageView7
-import kotlinx.android.synthetic.main.activity_addcart.prices
-import kotlinx.android.synthetic.main.activity_show_pages.*
 import org.jetbrains.anko.startActivity
 
 
@@ -43,18 +41,38 @@ class AddcartActivity : AppCompatActivity() {
         }
 
         imageView7.setOnClickListener {
-            startActivity<CartItemActivity>()
+            if (prices.text.toString() != "0 ₹") {
+                startActivity<CartItemActivity>()
+                finish()
+            }
+
+        }
+        imageView9.setOnClickListener {
             finish()
         }
-
         firestoreDB!!.collection("categoriesitem").document(id)
             .get()
             .addOnSuccessListener {
                 showModel = it.toObject(Cateitemmodel::class.java)
-
+                if (showModel!!.stack_count.toInt() <= 3) {
+                    textView30.visibility = View.VISIBLE
+                    butts.visibility = View.INVISIBLE
+                    number_picker.visibility = View.INVISIBLE
+                } else {
+                    textView30.visibility = View.GONE
+                    butts.visibility = View.VISIBLE
+                    number_picker.visibility = View.VISIBLE
+                }
                 Glide.with(this)
                     .load(showModel!!.image)
                     .into(imageView10)
+                var price = (showModel!!.price.toInt() * 50) / 100
+                textView15.text = showModel!!.title
+                textView20.text = showModel!!.price + " ₹"
+                textView24.text = " 50% off"
+                textView22.text = "$price  ₹"
+                textView20.paintFlags = textView20.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+
                 view()
             }
             .addOnFailureListener {
@@ -65,9 +83,12 @@ class AddcartActivity : AppCompatActivity() {
             val number: String = number_picker.number
             s = newValue - oldValue
             val cart = Cart()
-            if (newValue == 0) {
-                butts.visibility = View.VISIBLE
-                number_picker.visibility = View.INVISIBLE
+            if (showModel!!.stack_count.toInt() >= 3) {
+
+                if (newValue == 0) {
+                    butts.visibility = View.VISIBLE
+                    number_picker.visibility = View.INVISIBLE
+                }
             }
             if (s == 1) {
 
@@ -120,13 +141,17 @@ class AddcartActivity : AppCompatActivity() {
                 for (i in cartList) {
                     lis.add(i.ids!!)
                 }
+                if (showModel!!.stack_count.toInt() >= 3) {
 
-                if (lis.contains(showModel!!.id)) {
-                    number_picker!!.visibility = View.VISIBLE
-                    butts.visibility = View.INVISIBLE
-                } else {
-                    number_picker.visibility = View.INVISIBLE
-                    butts.visibility = View.VISIBLE
+                    if (lis.contains(showModel!!.id)) {
+                        number_picker!!.visibility = View.VISIBLE
+                        butts.visibility = View.INVISIBLE
+                    } else {
+                        if (showModel!!.stack_count.toInt() >= 3) {
+                            number_picker.visibility = View.INVISIBLE
+                            butts.visibility = View.VISIBLE
+                        }
+                    }
                 }
                 number_picker.number = no.size.toString()
 
@@ -136,6 +161,9 @@ class AddcartActivity : AppCompatActivity() {
                         price += i.price.toInt()
                     }
                     prices.text = "$price ₹"
+                } else {
+                    prices.text = "0 ₹"
+
                 }
 
             })

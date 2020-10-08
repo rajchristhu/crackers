@@ -141,7 +141,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/foodtype"
             app:layout_constraintEnd_toEndOf="@+id/menuitem"
-            app:srcCompat="@drawable/ic_baseline_edit_24" />
+            app:srcCompat="@drawable/ic_baseline_edit_24"
+            tools:ignore="VectorDrawableCompat" />
 
         <ImageView
             android:id="@+id/dele"
@@ -151,7 +152,8 @@
             app:layout_constraintEnd_toStartOf="@+id/editt"
             app:layout_constraintTop_toTopOf="@+id/editt"
             app:srcCompat="@drawable/ic_baseline_delete_24"
-            android:layout_marginRight="8dp" />
+            android:layout_marginRight="8dp"
+            tools:ignore="VectorDrawableCompat" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.ceseagod.rajarani.MainActivity
 import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.adapter.supportAdapter
 import com.ceseagod.rajarani.utilities.elements
@@ -35,6 +36,7 @@ import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.create_ticket.*
 import kotlinx.android.synthetic.main.support_frag_fragment.*
 import org.jetbrains.anko.alert
@@ -43,7 +45,7 @@ import org.jetbrains.anko.toast
 import java.io.ByteArrayOutputStream
 import java.util.HashMap
 
-class support_frag : Fragment() {
+class support_frag(val mainActivity: MainActivity) : Fragment() {
     private val FINAL_CHOOSE_PHOTO = 2
     private val FINAL_TAKE_PHOTO = 1
     var bitmap: Bitmap? = null
@@ -61,7 +63,7 @@ class support_frag : Fragment() {
     var tr: ArrayList<String>? = null
 
     companion object {
-        fun newInstance() = support_frag()
+//        fun newInstance() = support_frag(this)
         private const val OPEN_DOCUMENT_CODE = 3
 
     }
@@ -80,15 +82,15 @@ class support_frag : Fragment() {
         viewModel = ViewModelProviders.of(this).get(SupportFragViewModel::class.java)
         firestoreDB = FirebaseFirestore.getInstance()
         mWordViewModel = ViewModelProviders.of(activity!!).get(MainViewModel::class.java)
-//        try {
+        try {
 //            activity!!.itemcard.visibility = View.GONE
 //
 //            activity!!.main.visibility = View.GONE
 //            activity!!.sub.visibility = View.VISIBLE
-//            activity!!.equal_navigation_bars.visibility = View.GONE
+            activity!!.equal_navigation_bars.visibility = View.GONE
 //            activity!!.head.text="Support"
-//        } catch (e: Exception) {
-//        }
+        } catch (e: Exception) {
+        }
 
         try {
             val articleParams = HashMap<String, String>()

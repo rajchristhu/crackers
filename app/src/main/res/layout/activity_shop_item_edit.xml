@@ -272,7 +272,7 @@
         android:clickable="true"
         android:fontFamily="@font/open_sans_semibold"
         android:foreground="?android:attr/selectableItemBackground"
-        android:text="Add Item"
+        android:text="Edit Item"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"

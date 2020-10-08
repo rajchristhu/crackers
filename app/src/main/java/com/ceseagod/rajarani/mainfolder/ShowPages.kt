@@ -13,7 +13,10 @@ import com.ceseagod.rajarani.fragment.MainViewModel
 import com.ceseagod.rajarani.model.Cateitemmodel
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import kotlinx.android.synthetic.main.activity_addcart.*
 import kotlinx.android.synthetic.main.activity_show_pages.*
+import kotlinx.android.synthetic.main.activity_show_pages.imageView7
+import kotlinx.android.synthetic.main.activity_show_pages.prices
 import org.jetbrains.anko.startActivity
 
 class ShowPages : AppCompatActivity() {
@@ -39,7 +42,9 @@ class ShowPages : AppCompatActivity() {
         } catch (e: Exception) {
             ""
         }
-
+        imageView11.setOnClickListener {
+            finish()
+        }
         firestoreDB!!.collection("categoriesitem")
             .orderBy("created_time", Query.Direction.DESCENDING).get()
             .addOnSuccessListener {
@@ -52,8 +57,9 @@ class ShowPages : AppCompatActivity() {
                         }
                     } catch (e: Exception) {
                     }
-                    view()
                 }
+                view()
+
                 val acceptHorizontalLayoutsss =
                     LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
                 mainre!!.layoutManager = acceptHorizontalLayoutsss
@@ -64,8 +70,12 @@ class ShowPages : AppCompatActivity() {
 
             }
         imageView7.setOnClickListener {
-            startActivity<CartItemActivity>()
-            finish()
+            if (prices.text.toString()!="0 ₹")
+            {
+                startActivity<CartItemActivity>()
+                finish()
+            }
+
 
         }
 
@@ -86,6 +96,11 @@ class ShowPages : AppCompatActivity() {
                         price += i.price.toInt()
                     }
                     prices.text = "$price ₹"
+                }
+                else
+                {
+                    prices.text = "0 ₹"
+
                 }
 
             })
