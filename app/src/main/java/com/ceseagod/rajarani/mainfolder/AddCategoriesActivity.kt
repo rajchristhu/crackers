@@ -237,9 +237,9 @@ class AddCategoriesActivity : AppCompatActivity() {
         val storage = FirebaseStorage.getInstance()
         val storageRef = storage.reference.child("support")
         val mountainImagesRef =
-            storageRef.child(folder + "/" + userId + Timestamp.now().toString() + ".jpg")
+            storageRef.child(folder + "/" + userId + Timestamp.now().toString() + ".png")
         val baos = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, baos)
+        bitmap.compress(Bitmap.CompressFormat.PNG, 20, baos)
         val data = baos.toByteArray()
         val uploadTask = mountainImagesRef.putBytes(data)
         uploadTask.addOnFailureListener {
