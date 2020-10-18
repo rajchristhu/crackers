@@ -13,6 +13,7 @@ import com.ceseagod.rajarani.fragment.*
 import com.ceseagod.showcase.utilities.SessionMaintainence
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
     var firestoreDB: FirebaseFirestore? = null
@@ -49,12 +50,11 @@ class MainActivity : AppCompatActivity() {
 
             //navigation changed, do something here
         }
-        if(!SessionMaintainence!!.instance!!.is_loggedin)
-        {
-            m_item_photos.visibility=View.GONE
-            post.visibility=View.GONE
-            job.visibility=View.GONE
-            support.visibility=View.GONE
+        if (!SessionMaintainence!!.instance!!.is_loggedin) {
+            m_item_photos.visibility = View.GONE
+            post.visibility = View.GONE
+            job.visibility = View.GONE
+            support.visibility = View.GONE
         }
         post.setOnClickListener {
             drawerLayouts!!.closeDrawers()
@@ -71,6 +71,12 @@ class MainActivity : AppCompatActivity() {
         equal_navigation_bars.setCurrentActiveItem(0)
         menuss.setOnClickListener {
             drawerLayouts!!.openDrawer(drawer)
+        }
+        rates.setOnClickListener {
+            startActivity<Sign>()
+        }
+        terms.setOnClickListener {
+            startActivity<Terms>()
         }
         val actionBarDrawerToggle = object : ActionBarDrawerToggle(
             this, drawerLayouts,

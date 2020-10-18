@@ -17,7 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppThems"
         tools:replace="android:theme,android:icon">
-        <activity android:name=".mainfolder.AddressActivity"></activity>
+        <activity android:name=".Sign"></activity>
+        <activity android:name=".Terms" />
+        <activity android:name=".mainfolder.AddressActivity" />
         <activity android:name=".mainfolder.check" />
         <activity android:name=".mainfolder.SpalshActivitys" />
         <activity android:name=".mainfolder.ShopItemEditActivity" />

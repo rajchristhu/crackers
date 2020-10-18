@@ -105,8 +105,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/drawer"
         android:layout_width="match_parent"
-        android:layout_gravity="start"
         android:layout_height="match_parent"
+        android:layout_gravity="start"
         android:background="@color/background"
         android:clickable="true">
         <!--        android:layout_gravity="end"-->
@@ -116,7 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-
+android:visibility="gone"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:clickable="true"
@@ -219,6 +219,49 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <!--profilepic-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/rates"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rate">
+
+                    <ImageView
+                        android:id="@+id/rateims"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/ratin"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/ratingtexts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/open_sans"
+                        android:text="SHIPPING POLICY"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/rateims"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/circularImageView"
                     android:layout_width="wrap_content"
@@ -589,19 +632,20 @@ android:visibility="gone"
                         android:layout_width="23dp"
                         android:layout_height="23dp"
                         android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:background="@drawable/ratin"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginLeft="8dp" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/ratingtext"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/open_sans"
@@ -610,8 +654,7 @@ android:visibility="gone"
                         android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/rateim"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginLeft="16dp" />
+                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <!--logout-->
