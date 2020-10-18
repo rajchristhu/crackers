@@ -81,7 +81,7 @@ class CartItemActivity : AppCompatActivity(), CoroutineScope {
         })
         pay.setOnClickListener {
             if (SessionMaintainence.instance!!.is_loggedin) {
-                if (toStrings.toInt() >= 1500) {
+                if (toStrings.toInt() >= 1499) {
                     startActivity<AddressActivity>("price" to toStrings)
                 } else {
                     showDialogs()
