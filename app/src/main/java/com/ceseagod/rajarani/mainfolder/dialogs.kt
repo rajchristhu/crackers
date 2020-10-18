@@ -27,8 +27,8 @@ class dialogs : DialogFragment() {
         root_view = inflater.inflate(R.layout.dialog_frag, container, false)
 //        acceptHorizontalLayout =
 //            LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        root_view!!.image.setAnimation("alert.json")
-        root_view!!.textView70.text = "Minimum Cart Value 1500 ₹"
+        root_view!!.image.setAnimation("wing.json")
+        root_view!!.textView70.text = "Minimum Cart Value 1499₹"
         root_view!!.image.playAnimation()
         root_view!!.loginbutton.visibility = View.GONE
         root_view!!.image.loop(true)

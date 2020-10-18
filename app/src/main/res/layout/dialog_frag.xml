@@ -103,7 +103,7 @@
                     android:fontFamily="@font/open_sans_semibold"
                     android:text="Login and continue "
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="19sp"
                     app:layout_constraintEnd_toStartOf="@+id/closd"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

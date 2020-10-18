@@ -122,7 +122,7 @@
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/open_sans_bold"
             android:shadowColor="#FFF"
-            android:text="SAMPLE 1"
+            android:text=" ----"
             android:textColor="#FFF"
             android:textSize="21sp"
             app:layout_constraintBottom_toTopOf="@+id/textView20"

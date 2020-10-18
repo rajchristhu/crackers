@@ -73,7 +73,10 @@ class MainFragment(val mainActivity: MainActivity) : Fragment() {
 //            activity!!.head.text="Support"
         } catch (e: Exception) {
         }
-        imaged.visibility = View.VISIBLE
+        try {
+            imaged.visibility = View.VISIBLE
+        } catch (e: Exception) {
+        }
         firestoreDB!!.collection("categories").orderBy("created_time", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener { document ->
@@ -96,11 +99,17 @@ class MainFragment(val mainActivity: MainActivity) : Fragment() {
 
                 }
                 view()
-                imaged.visibility = View.GONE
+                try {
+                    imaged.visibility = View.GONE
+                } catch (e: Exception) {
+                }
 
             }
             .addOnFailureListener {
-                imaged.visibility = View.GONE
+                try {
+                    imaged.visibility = View.GONE
+                } catch (e: Exception) {
+                }
 
 //                    toppy.visibility=View.GONE
             }
