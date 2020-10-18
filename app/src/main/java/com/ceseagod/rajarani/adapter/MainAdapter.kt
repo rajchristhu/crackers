@@ -39,6 +39,7 @@ class MainAdapter(
         val data=filter[position]
         Glide.with(activity)
             .load(data.image)
+            .placeholder(R.drawable.place)
             .into(holder.newsIMage)
 
         holder.textView.text = data.title

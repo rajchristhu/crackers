@@ -31,7 +31,7 @@ class trackAdapter(
         val data = mutableList[position]
         if (data.status == "open") {
             holder.shopname.text = "Preparing"
-            holder.image.setAnimation("preparet.json")
+            holder.image.setAnimation("pkgs.json")
 
             holder.image.playAnimation()
             holder.image.loop(true)

@@ -111,7 +111,7 @@ class support_frag(val mainActivity: MainActivity) : Fragment() {
         }
         floatingActionButton2.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL)
-            intent.data = Uri.parse("tel:7810048001")
+            intent.data = Uri.parse("tel:+917810048001")
             startActivity(intent)
         }
 
@@ -508,7 +508,7 @@ class support_frag(val mainActivity: MainActivity) : Fragment() {
     }
     fun whatsapp()
     {
-        val url = "https://api.whatsapp.com/send?phone=$7810048001"
+        val url = "https://api.whatsapp.com/send?phone=$917810048001"
         val i = Intent(Intent.ACTION_VIEW)
         i.data = Uri.parse(url)
         startActivity(i)

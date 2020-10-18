@@ -99,7 +99,7 @@ class AddcartActivity : AppCompatActivity() {
                 cart.itemids = showModel!!.itemId
                 cart.count = number.toInt()
                 cart.shopname = "name"
-                cart.price = showModel!!.price.toInt()
+                cart.price = (showModel!!.price.toInt() * 50) / 100
                 cart.originalprize = showModel!!.stack_count.toInt()
                 if (cartList.size == 0) {
                     viewModel!!.insert(cart)
@@ -115,7 +115,7 @@ class AddcartActivity : AppCompatActivity() {
                 cart.itemids = showModel!!.itemId
                 cart.count = oldValue.toInt()
                 cart.shopname = "name"
-                cart.price = showModel!!.price.toInt()
+                cart.price = (showModel!!.price.toInt() * 50) / 100
                 cart.originalprize = showModel!!.stack_count.toInt()
                 viewModel!!.deletePerticular(cart)
             }
@@ -178,7 +178,7 @@ class AddcartActivity : AppCompatActivity() {
         cart.itemids = data.itemId
         cart.count = 1
         cart.shopname = "name"
-        cart.price = data.price.toInt()
+        cart.price = (data!!.price.toInt() * 50) / 100
         cart.originalprize = data.stack_count.toInt()
         if (cartList.size == 0) {
             viewModel!!.insert(cart)

@@ -1,6 +1,9 @@
 package com.ceseagod.rajarani
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -28,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         drawerLayouts = drawerLayout
         firestoreDB = FirebaseFirestore.getInstance()
-        mWordViewModel!!.deleteall()
+//        mWordViewModel!!.deleteall()
         changeFragment(MainFragment(this), "mainfrag")
 
         equal_navigation_bars.setNavigationChangeListener { view, position ->
@@ -71,6 +74,9 @@ class MainActivity : AppCompatActivity() {
         equal_navigation_bars.setCurrentActiveItem(0)
         menuss.setOnClickListener {
             drawerLayouts!!.openDrawer(drawer)
+        }
+        rate.setOnClickListener {
+            rate()
         }
         rates.setOnClickListener {
             startActivity<Sign>()
@@ -120,6 +126,27 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
         }
 
+    }
+    fun rate() {
+        val uri: Uri = Uri.parse("market://details?id=$packageName")
+        val goToMarket = Intent(Intent.ACTION_VIEW, uri)
+        // To count with Play market backstack, After pressing back button,
+        // to taken back to our application, we need to add following flags to intent.
+        goToMarket.addFlags(
+            Intent.FLAG_ACTIVITY_NO_HISTORY or
+                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
+                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+        )
+        try {
+            startActivity(goToMarket)
+        } catch (e: ActivityNotFoundException) {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("http://play.google.com/store/apps/details?id=$packageName")
+                )
+            )
+        }
     }
 
 }
