@@ -19,7 +19,7 @@ class check : AppCompatActivity() {
                 startActivity<LoginActivity>()
                 finish()
             } else {
-                startActivity<GetStartedActivity>()
+                startActivity<LoginActivity>()
                 finish()
             }
 

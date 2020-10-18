@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
 import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.cart.Cart
+import kotlinx.android.synthetic.main.activity_addcart.*
 
 import kotlinx.android.synthetic.main.cartitemdapter.view.*
 
@@ -29,15 +31,20 @@ class cartitemadapter(
     override fun onBindViewHolder(holder: cartitemadapter.ViewHolder, position: Int) {
         val data = s[position]
         holder.foodname.text = data[0].name
-        holder.itemcou.text = data.size.toString()+" ITEMS"
-        holder.itemprice.text = data[0].price.toString()+" ₹"
-        holder.itemtotal.text = (data[0].price *data.size).toString()+" ₹"
+        holder.itemcou.text = data.size.toString() + " ITEMS"
+        holder.itemprice.text = data[0].price.toString() + " ₹"
+        holder.itemtotal.text = (data[0].price * data.size).toString() + " ₹"
+        holder.imageView15.setOnClickListener {
+
+        }
+
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val foodname = itemView.payname
         val itemcou = itemView.itemcou
         val itemprice = itemView.itemprice
+        val imageView15 = itemView.imageView15
         val itemtotal = itemView.itemtotal
     }
 }

@@ -36,9 +36,13 @@ class SecondAdapter(
                 Glide.with(activity)
                     .load(data.image)
                     .into(holder.newsIMage)
-        holder.newsIMage.setOnClickListener {
-            activity!!.startActivity<ShowPages>("id" to data.id)
+        if (position!=0)
+        {
+            holder.newsIMage.setOnClickListener {
+                activity!!.startActivity<ShowPages>("id" to data.id)
 //            activity!!.startActivity<AddCategoriesItemActivity>()
+            }
         }
+
     }
 }

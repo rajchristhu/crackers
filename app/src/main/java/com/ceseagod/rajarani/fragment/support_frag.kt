@@ -10,11 +10,9 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.provider.DocumentsContract
 import android.provider.MediaStore
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +21,8 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.ceseagod.rajarani.MainActivity
@@ -43,7 +43,7 @@ import org.jetbrains.anko.alert
 import org.jetbrains.anko.okButton
 import org.jetbrains.anko.toast
 import java.io.ByteArrayOutputStream
-import java.util.HashMap
+import java.util.*
 
 class support_frag(val mainActivity: MainActivity) : Fragment() {
     private val FINAL_CHOOSE_PHOTO = 2
@@ -107,11 +107,11 @@ class support_frag(val mainActivity: MainActivity) : Fragment() {
 //                ColorStateList.valueOf(resources.getColor(R.color.colorErase))
         }
         floatingActionButton.setOnClickListener {
-            createTicket()
+            whatsapp()
         }
         floatingActionButton2.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL)
-            intent.data = Uri.parse("tel:9597138105")
+            intent.data = Uri.parse("tel:7810048001")
             startActivity(intent)
         }
 
@@ -505,5 +505,12 @@ class support_frag(val mainActivity: MainActivity) : Fragment() {
 //                dialog.payimages.setImageURI(imageUri)
             }
         }
+    }
+    fun whatsapp()
+    {
+        val url = "https://api.whatsapp.com/send?phone=$7810048001"
+        val i = Intent(Intent.ACTION_VIEW)
+        i.data = Uri.parse(url)
+        startActivity(i)
     }
 }

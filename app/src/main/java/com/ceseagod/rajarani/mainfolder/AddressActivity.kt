@@ -2,6 +2,7 @@ package com.ceseagod.rajarani.mainfolder
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.ceseagod.rajarani.MainActivity
@@ -13,16 +14,20 @@ import com.ceseagod.rajarani.model.orederModel
 import com.ceseagod.showcase.utilities.SessionMaintainence
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
+import com.razorpay.Checkout
+import com.razorpay.PaymentResultListener
 import kotlinx.android.synthetic.main.activity_address.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
+import org.json.JSONObject
 
-class AddressActivity : AppCompatActivity() {
+class AddressActivity : AppCompatActivity(), PaymentResultListener {
     var price = ""
     private var mWordViewModel: MainViewModel? = null
     val cart = mutableListOf<List<Cart>>()
     var firestoreDB: FirebaseFirestore? = null
-
+    private var chackout: Checkout? = null
+    private var razorpayKey: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_address)
@@ -41,6 +46,10 @@ class AddressActivity : AppCompatActivity() {
                 cart.add(it)
             }
         })
+        imageView4.setOnClickListener {
+            finish()
+
+        }
 
         pay.setOnClickListener {
             val input1 = inputs1.text.toString()
@@ -51,7 +60,17 @@ class AddressActivity : AppCompatActivity() {
             val input1e = inputs1e.text.toString()
             val s = checksValidation(input1, input1a, input1b, input1c, input1d, input1e)
             if (s) {
-                order(input1, input1a, input1b, input1c, input1d, input1e)
+
+                //you have to convert Rs. to Paisa using multiplication of 100
+                val convertedAmount: String =
+                    (price.toInt() * 100).toString()
+
+                rezorpayCall(
+                    SessionMaintainence.instance!!.firstName,
+                    "",
+                    SessionMaintainence.instance!!.phoneno,
+                    convertedAmount
+                )
             } else {
                 toast("Fill All details")
                 if (inputs1.text.toString().isEmpty()) {
@@ -136,4 +155,49 @@ class AddressActivity : AppCompatActivity() {
         return topti != "" && imagePath != "" && toptitwo != "" && des != "" && input1e != ""
     }
 
+    override fun onPaymentError(p0: Int, p1: String?) {
+        toast("fail")
+    }
+
+    override fun onPaymentSuccess(p0: String?) {
+        val input1 = inputs1.text.toString()
+        val input1a = inputs1a.text.toString()
+        val input1b = inputs1b.text.toString()
+        val input1c = inputs1c.text.toString()
+        val input1d = inputs1d.text.toString()
+        val input1e = inputs1e.text.toString()
+        order(input1, input1a, input1b, input1c, input1d, input1e)
+
+    }
+
+    fun rezorpayCall(
+        name: String?,
+        email: String?,
+        phNo: String?,
+        convertedAmount: String?
+    ) {
+        /*
+          You need to pass current activity in order to let Razorpay create CheckoutActivity
+         */
+        razorpayKey =
+            "rzp_live_tTUgbwN0dn32ME" //Generate your razorpay key from Settings-> API Keys-> copy Key Id
+        chackout = Checkout()
+        chackout!!.setKeyID(razorpayKey)
+        try {
+            val options = JSONObject()
+            options.put("name", name)
+            options.put("description", "Payment")
+            options.put("currency", "INR")
+            options.put("amount", convertedAmount)
+            val preFill = JSONObject()
+            preFill.put("email", email)
+            preFill.put("contact", phNo)
+            options.put("prefill", preFill)
+            chackout!!.open(this, options)
+        } catch (e: Exception) {
+            Toast.makeText(this, "Error in payment: " + e.message, Toast.LENGTH_LONG)
+                .show()
+            e.printStackTrace()
+        }
+    }
 }

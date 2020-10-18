@@ -129,5 +129,16 @@
             app:layout_constraintTop_toTopOf="@+id/itemprice"
             android:layout_marginLeft="16dp" />
 
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/itemtotal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/itemtotal"
+            app:srcCompat="@drawable/ic_baseline_delete_24" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

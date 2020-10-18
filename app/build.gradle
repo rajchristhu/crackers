@@ -81,7 +81,7 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
 
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
-
+    implementation 'com.razorpay:checkout:1.4.9'
     implementation 'com.github.travijuu:numberpicker:1.0.7'
     // Room components
     implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'

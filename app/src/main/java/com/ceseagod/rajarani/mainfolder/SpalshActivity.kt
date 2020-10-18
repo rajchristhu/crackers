@@ -33,7 +33,7 @@ class SpalshActivity : AppCompatActivity() {
                     startActivity<LoginActivity>()
                     finish()
                 } else {
-                    startActivity<GetStartedActivity>()
+                    startActivity<LoginActivity>()
                     finish()
                 }
 
