@@ -11,7 +11,7 @@ import com.ceseagod.rajarani.cart.Cart
 import com.ceseagod.rajarani.fragment.MainViewModel
 import com.ceseagod.rajarani.fragment.orderfoodModel
 import com.ceseagod.rajarani.model.orederModel
-import com.ceseagod.showcase.utilities.SessionMaintainence
+import com.ceseagod.rajarani.utilities.SessionMaintainence
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.razorpay.Checkout

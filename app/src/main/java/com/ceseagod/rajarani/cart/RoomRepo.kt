@@ -3,9 +3,9 @@ package com.ceseagod.rajarani.cart
 import android.app.Application
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
-import io.reactivex.Completable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+//import io.reactivex.Completable
+//import io.reactivex.android.schedulers.AndroidSchedulers
+//import io.reactivex.schedulers.Schedulers
 
 
 class RoomRepo(application: Application) {
@@ -37,29 +37,29 @@ fun deleteall()
 {
     deleteAllWordsAsyncTask(habitDao).execute()
 }
-    fun delete(word: Cart): Boolean {
-        var check = false
-//        val deleteAllCompletable = Completable.fromAction(habitDao::deleteAll)
-//        val insertUserCompletable =
-//            Completable.fromAction { habitDao.insert(word) }
-//        deleteAllCompletable
-//            .andThen(Completable.fromAction { check = true })
-//            .andThen(insertUserCompletable)
-//            .andThen(Completable.fromAction { println("Insert finished") })
+//    fun delete(word: Cart): Boolean {
+//        var check = false
+////        val deleteAllCompletable = Completable.fromAction(habitDao::deleteAll)
+////        val insertUserCompletable =
+////            Completable.fromAction { habitDao.insert(word) }
+////        deleteAllCompletable
+////            .andThen(Completable.fromAction { check = true })
+////            .andThen(insertUserCompletable)
+////            .andThen(Completable.fromAction { println("Insert finished") })
+////            .observeOn(AndroidSchedulers.mainThread())
+////            .subscribeOn(Schedulers.single())
+////            .subscribe()
+//        Completable.fromAction {
+//            habitDao.deleteAndCreate(
+//                word
+//            )
+//        }
 //            .observeOn(AndroidSchedulers.mainThread())
 //            .subscribeOn(Schedulers.single())
 //            .subscribe()
-        Completable.fromAction {
-            habitDao.deleteAndCreate(
-                word
-            )
-        }
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.single())
-            .subscribe()
-        return check
-//        deleteAllWordsAsyncTask(habitDao).execute()
-    }
+//        return check
+////        deleteAllWordsAsyncTask(habitDao).execute()
+//    }
 
     private class insertAsyncTask internal constructor(private val mAsyncTaskDao: CartDao) :
         AsyncTask<Cart, Void, Void>() {

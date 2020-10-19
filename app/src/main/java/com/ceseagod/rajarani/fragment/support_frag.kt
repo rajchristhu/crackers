@@ -31,7 +31,7 @@ import com.ceseagod.rajarani.adapter.supportAdapter
 import com.ceseagod.rajarani.utilities.elements
 import com.ceseagod.showcase.support_page.supportmessagemodel
 import com.ceseagod.showcase.support_page.supportmodel
-import com.ceseagod.showcase.utilities.SessionMaintainence
+import com.ceseagod.rajarani.utilities.SessionMaintainence
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore

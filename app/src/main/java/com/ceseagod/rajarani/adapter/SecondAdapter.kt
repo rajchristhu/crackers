@@ -35,7 +35,7 @@ class SecondAdapter(
         val data=filters[position]
                 Glide.with(activity)
                     .load(data.image)
-                    .placeholder(R.drawable.place)
+//                    .placeholder(R.drawable.place)
                     .into(holder.newsIMage)
         if (position!=0)
         {

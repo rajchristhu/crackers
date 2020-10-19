@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.adapter.Cateadapt
 import com.ceseagod.rajarani.model.CateModel
-import com.ceseagod.showcase.utilities.SessionMaintainence
+import com.ceseagod.rajarani.utilities.SessionMaintainence
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_admins.*
 import org.jetbrains.anko.startActivity

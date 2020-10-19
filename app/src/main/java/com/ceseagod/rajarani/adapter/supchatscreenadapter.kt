@@ -13,7 +13,7 @@ import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.mainfolder.SupportChatActivity
 import com.ceseagod.showcase.support_page.supportmessagemodel
 import com.ceseagod.showcase.support_page.supportmodel
-import com.ceseagod.showcase.utilities.SessionMaintainence
+import com.ceseagod.rajarani.utilities.SessionMaintainence
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.chatadapt.view.*
 import kotlinx.android.synthetic.main.imagefullview.*

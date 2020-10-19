@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ceseagod.rajarani.MainActivity
 import com.ceseagod.rajarani.R
-import com.ceseagod.showcase.utilities.SessionMaintainence
+import com.ceseagod.rajarani.utilities.SessionMaintainence
 import org.jetbrains.anko.startActivity
 
 class check : AppCompatActivity() {

@@ -8,7 +8,7 @@ import android.text.TextWatcher
 import android.view.View
 import com.ceseagod.rajarani.MainActivity
 import com.ceseagod.rajarani.R
-import com.ceseagod.showcase.utilities.SessionMaintainence
+import com.ceseagod.rajarani.utilities.SessionMaintainence
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth

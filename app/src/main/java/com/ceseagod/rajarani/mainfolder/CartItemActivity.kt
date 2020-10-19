@@ -2,7 +2,6 @@ package com.ceseagod.rajarani.mainfolder
 
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProviders
@@ -13,16 +12,13 @@ import com.ceseagod.rajarani.adapter.cartitemadapter
 import com.ceseagod.rajarani.cart.Cart
 import com.ceseagod.rajarani.customview.dialog
 import com.ceseagod.rajarani.fragment.MainViewModel
-import com.ceseagod.showcase.utilities.SessionMaintainence
+import com.ceseagod.rajarani.utilities.SessionMaintainence
 import com.google.firebase.firestore.FirebaseFirestore
-import com.razorpay.Checkout
-import com.razorpay.PaymentResultListener
 import kotlinx.android.synthetic.main.activity_cart_item.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import org.jetbrains.anko.startActivity
-import org.json.JSONObject
 import kotlin.coroutines.CoroutineContext
 
 class CartItemActivity : AppCompatActivity(), CoroutineScope {

@@ -11,7 +11,7 @@ import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.adapter.orderAdapter
 import com.ceseagod.rajarani.model.orederModel
 
-import com.ceseagod.showcase.utilities.SessionMaintainence
+import com.ceseagod.rajarani.utilities.SessionMaintainence
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.order_fragment.*

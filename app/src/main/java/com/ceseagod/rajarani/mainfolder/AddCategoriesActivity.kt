@@ -1,6 +1,5 @@
 package com.ceseagod.rajarani.mainfolder
 
-import android.R.attr
 import android.annotation.TargetApi
 import android.app.Activity
 import android.app.ProgressDialog
@@ -19,7 +18,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.model.CateModel
-import com.ceseagod.showcase.utilities.SessionMaintainence
+import com.ceseagod.rajarani.utilities.SessionMaintainence
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage

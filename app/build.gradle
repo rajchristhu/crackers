@@ -4,6 +4,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+//    signingConfigs {
+//        release {
+//            storeFile file('C:\\Users\\admin\\Desktop\\Christhu\\crackers.jks')
+//            storePassword 'rajanrobin007'
+//            keyPassword 'rajanrobin007'
+//            keyAlias 'key0'
+//        }
+//    }
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 //    packagingOptions {
@@ -18,11 +26,13 @@ android {
 //    }
     defaultConfig {
         applicationId "com.ceseagod.rajarani"
-        minSdkVersion 26
+        minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "2.0"
         multiDexEnabled true
+
+//        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -55,6 +65,10 @@ dependencies {
     def roomVersion = '1.1.1'
     def archLifecycleVersion = '1.1.1'
     def kotlin_version = '1.2.51'
+//    implementation 'com.google.android.gms:play-services:9.0.0'
+
+    implementation 'com.android.support:multidex:1.0.3'
+
     //firebase
     implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
@@ -78,8 +92,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
     implementation 'fr.avianey.com.viewpagerindicator:library:2.4.1.1@aar'
-    implementation 'com.android.support:multidex:1.0.3'
-
+//    implementation 'com.android.support:multidex:1.0.3'
+    def multidex_version = "2.0.1"
+    implementation 'androidx.multidex:multidex:"2.0.1'
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
     implementation 'com.razorpay:checkout:1.4.9'
     implementation 'com.github.travijuu:numberpicker:1.0.7'
@@ -90,13 +105,13 @@ dependencies {
     // Lifecycle components
     implementation "android.arch.lifecycle:extensions:$archLifecycleVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$archLifecycleVersion"
-    implementation "io.reactivex.rxjava3:rxjava:3.0.6"
+//    implementation "io.reactivex.rxjava3:rxjava:3.0.6"
     implementation 'com.airbnb.android:lottie:3.4.1'
 
   
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+//    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
 
 }
+apply plugin: 'com.google.gms.google-services'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
-apply plugin: 'com.google.gms.google-services'

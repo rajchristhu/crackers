@@ -49,8 +49,8 @@ class MainViewModel(application: Application) :  AndroidViewModel(application) {
 //            .observeOn(AndroidSchedulers.mainThread())
 //            .subscribeOn(Schedulers.single())
 //            .subscribe()
-        val s = habitRepository.delete(cart)
-        Log.e("C", s.toString())
+//        val s = habitRepository.delete(cart)
+//        Log.e("C", s.toString())
 //        habitRepository.delete()
     }
 

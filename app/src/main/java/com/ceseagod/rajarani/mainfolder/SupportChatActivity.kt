@@ -8,7 +8,6 @@ import android.content.ContentUris
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.DocumentsContract
@@ -25,7 +24,7 @@ import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.adapter.supchatscreenadapter
 import com.ceseagod.showcase.support_page.supportmodel
 
-import com.ceseagod.showcase.utilities.SessionMaintainence
+import com.ceseagod.rajarani.utilities.SessionMaintainence
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FieldValue

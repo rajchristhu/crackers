@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide
 import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.model.CateModel
 import com.ceseagod.rajarani.model.Cateitemmodel
-import com.ceseagod.showcase.utilities.SessionMaintainence
+import com.ceseagod.rajarani.utilities.SessionMaintainence
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage

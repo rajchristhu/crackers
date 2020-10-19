@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ceseagod.rajarani.MainActivity
 import com.ceseagod.rajarani.R
-import com.ceseagod.showcase.utilities.SessionMaintainence
+import com.ceseagod.rajarani.utilities.SessionMaintainence
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.TaskExecutors
 import com.google.firebase.FirebaseException
@@ -24,7 +24,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_otp_screen.*
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.okButton
-import org.jetbrains.anko.toast
 import java.util.concurrent.TimeUnit
 
 
