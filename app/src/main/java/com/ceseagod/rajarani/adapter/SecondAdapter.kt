@@ -19,6 +19,7 @@ class SecondAdapter(
     RecyclerView.Adapter<SecondAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val newsIMage = itemView.newsIMage
+        val textView36 = itemView.textView36
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -44,6 +45,7 @@ class SecondAdapter(
 //            activity!!.startActivity<AddCategoriesItemActivity>()
             }
         }
+        holder.textView36.text=data.title
 
     }
 }

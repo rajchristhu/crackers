@@ -78,7 +78,6 @@ class AddressActivity : AppCompatActivity(), PaymentResultListener {
                 }
                 if (inputs1a.text.toString().isEmpty()) {
                     inputs1a.error = "Fill the details"
-
                 }
                 if (inputs1b.text.toString().isEmpty()) {
                     inputs1b.error = "Fill the details"
