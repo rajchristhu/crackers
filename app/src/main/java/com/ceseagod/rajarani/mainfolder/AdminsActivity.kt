@@ -3,6 +3,7 @@ package com.ceseagod.rajarani.mainfolder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ceseagod.rajarani.OrderActivity
 import com.ceseagod.rajarani.R
 import com.ceseagod.rajarani.adapter.Cateadapt
 import com.ceseagod.rajarani.model.CateModel
@@ -19,6 +20,9 @@ class AdminsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admins)
         firestoreDB = FirebaseFirestore.getInstance()
+        button3.setOnClickListener {
+            startActivity<OrderActivity>()
+        }
         firestoreDB!!.collection("categories").get()
             .addOnSuccessListener {
                 cateModel.clear()
